@@ -23,7 +23,6 @@ PEXPECT LICENSE
 '''
 
 from __future__ import print_function
-
 from __future__ import absolute_import
 
 import pexpect
@@ -94,6 +93,8 @@ class Chess:
 
     def quit(self):
         self.child.sendline ('quit')
+
+
 import sys
 print('Starting...')
 white = Chess()
@@ -116,8 +117,6 @@ move_white = white.get_computer_move()
 print('move white:', move_white)
 
 sys.exit(1)
-
-
 
 black = Chess()
 white = Chess()
@@ -145,4 +144,7 @@ while not done:
     white.do_move (move_black)
     print('tail of loop')
 
-g.quit()
+try:
+    g.quit()
+except NameError:
+    pass
